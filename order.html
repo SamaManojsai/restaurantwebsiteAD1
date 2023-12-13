@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3,form,p{
+            font-size: 30px;
+        }  marquee{
+            font-size: 30px;
+            background-color: white;
+        }
+        h1{
+            font-size: 40px;
+        }
+        .manoj{
+            font-size: 25px;
+            background-color: darkblue;
+            color: white;
+        }
+        button{
+            font-size: 25px;
+        }
+    </style>
+    <link rel="stylesheet" href="submit.js">
+</head>
+<body bgcolor="skyblue">
+    <center>
+    <h1>Foodie Restaurant</h1>
+    <h3>
+        <a href="Home.html">Home</a> &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp;
+        <a href="Menu.html">Menu</a> &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp;
+        <a href="Aboutus.html">About us </a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;
+        <a href="contact.html">Contact</a> &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp;
+    </h3><hr>
+    <marquee behavior="" direction="">****Flash!Flash!Flash! Today's Special offers****</marquee>
+        <hr>
+</center>
+ <h3>please conform the order please fill the below details correctly</h3>
+    <form  id="Thank you" >
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit phone number" required><br><br>
+
+        <label for="Menu">Menu item selected</label>
+        <select id="Menu" name="Menu" required>
+            <option value="Briyani">Briyani</option>
+            <option value="starters">starters</option>
+            <option value="Pizza">Pizza</option>
+            <!-- Add more options as needed -->
+        </select><br><br>
+
+        <label for="message">Address:</label>
+        <textarea id="message" name="message" rows="4"></textarea><br><br>
+
+        <button type="submit" class="manoj">Submit Order</button>
+        <button type="payment">
+            <a href="https://paytm.com/">payment</a>
+        </button>
+ </form>
+
+ <div id="thankYouMessage">
+    <p>Thank you <span id="thankYouName"></span> for visiting our Restaurant!</p>
+    <p>Email: <span id="thankYouEmail"></span></p>
+    <p>Phone: <span id="thankYouPhone"></span></p>
+    <p>Menu item selected <span id="thankYouforMenu"></span></p>
+    
+    <p>Additional Notes: <span id="thankYouMessageText"></span></p>
+</div>
+<script>
+    document.getElementById("Thank you").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevents the form from actually submitting (for demonstration purposes)
+
+        // Retrieve form values
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var Menu = document.getElementById("Menu").value;
+        var message = document.getElementById("message").value;
+
+          // Display thank you message with patient details
+          document.getElementById("thankYouName").innerText = name;
+            document.getElementById("thankYouEmail").innerText = email;
+            document.getElementById("thankYouPhone").innerText = phone;
+            document.getElementById("thankYouforMenu").innerText = Menu;
+           document.getElementById("thankYouMessageText").innerText = message;
+
+            document.getElementById("thankYouMessage").style.display = "block";
+        });
+    </script>
+</body>
+</html>
